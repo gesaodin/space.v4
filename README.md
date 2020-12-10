@@ -62,3 +62,42 @@ Additionally, make sure that the following extensions are enabled in your PHP:
 - [mbstring](http://php.net/manual/en/mbstring.installation.php)
 - [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
 - xml (enabled by default - don't turn it off)
+
+
+## INSTALACION PERSONAL
+
+PASOS PARA MIGRAR PACE
+
+
+Hacer esto como root
+Centos 
+Instalar Composer
+sudo yum install php-cli php-zip wget unzip 
+
+
+Instalar Composer paquete
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+
+Certificado de Seguridad
+HASH="$(wget -q -O - https://composer.github.io/installer.sig)"
+
+Ejecutar Instalacion
+php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+
+Instalacion en ruta global :bin
+sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+
+
+***********************************************************************
+* Creando Nuevo Proyecto
+***********************************************************************
+
+Crear proyecto en blanco
+composer create-project codeigniter4/appstarter space.v4
+Copiar el origen carpeta del git
+
+
+Activar development
+php builds development
+composer update
+
